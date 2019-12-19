@@ -2,7 +2,7 @@
 
 from prettytable import PrettyTable
 t = PrettyTable()
-t.field_names = ["Year", "Sum", "Increase"]
+t.field_names = ["Year", "Sum", "Yearly increase", "Monthly increase"]
 diff = int(0)
 
 # Take input parameters and call on next function
@@ -23,7 +23,7 @@ def calculateRes(sum, years, interest, manualDeposit):
         diff = (sum * (1 + interest/100) - sum)
         sum = (sum * (1 + interest/100))
         sum = sum + manualDeposit
-        t.add_row([year, format(sum, '.2f'), format(diff, '.2f')])
+        t.add_row([year, format(sum, '.2f'), format(diff, '.2f'), format((diff / 12), '.2f')])
         years = years - 1
         year = year + 1
     print(t)
